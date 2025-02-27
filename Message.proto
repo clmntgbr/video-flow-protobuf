@@ -87,21 +87,21 @@ enum MediaPodStatus {
     ERROR = 22;
 }
 
-enum PresetSubtitleShadow {
+enum ConfigurationSubtitleShadow {
     SHADOW_NONE = 0;
     SHADOW_SOFT = 1;
     SHADOW_MEDIUM = 2;
     SHADOW_HARD = 4;
 }
 
-enum PresetSubtitleOutlineThickness{
+enum ConfigurationSubtitleOutlineThickness{
     OUTLINE_NONE = 0;
     OUTLINE_SOFT = 1;
     OUTLINE_MEDIUM = 2;
     OUTLINE_HARD = 4;
 }
 
-enum PresetSubtitleFont {
+enum ConfigurationSubtitleFont {
     ARIAL = 0;
     TIMES_NEW_ROMAN = 1;
     COURIER_NEW = 2;
@@ -119,9 +119,8 @@ message MediaPod {
     string userUuid = 2;
     Video originalVideo = 3;
     string status = 5;
-    Preset preset = 6;
+    Configuration configuration = 6;
     Video processedVideo = 7;
-    string format = 8;
 }
 
 message Video {
@@ -135,7 +134,7 @@ message Video {
     repeated string audios = 8;
 }
 
-message Preset {
+message Configuration {
     string subtitleFont = 1;
     string subtitleSize = 2;
     string subtitleColor = 3;
@@ -146,4 +145,5 @@ message Preset {
     string subtitleOutlineThickness = 8;
     string subtitleShadow = 9;
     string subtitleShadowColor = 10;
+    string format = 11;
 }
