@@ -53,38 +53,50 @@ message SubtitleIncrustatorToApi {
     MediaPod mediaPod = 1;
 }
 
+message ApiToVideoSplitter {
+    MediaPod mediaPod = 1;
+}
+
+message VideoSplitterToApi {
+    MediaPod mediaPod = 1;
+}
+
 enum MediaPodStatus {
-    UPLOAD_COMPLETE = 0;
+    RESIZING = 0;
+    RESIZED = 1;
 
-    SOUND_EXTRACTOR_PENDING = 1;
-    SOUND_EXTRACTOR_COMPLETE = 2;
-    SOUND_EXTRACTOR_ERROR = 3;
+    READY_FOR_EXPORT = 2;
+    ERROR = 3;
 
-    SUBTITLE_GENERATOR_PENDING = 4;
-    SUBTITLE_GENERATOR_COMPLETE = 5;
-    SUBTITLE_GENERATOR_ERROR = 6;
+    UPLOAD_COMPLETE = 4;
 
-    SUBTITLE_MERGER_PENDING = 7;
-    SUBTITLE_MERGER_COMPLETE = 8;
-    SUBTITLE_MERGER_ERROR = 9;
+    SOUND_EXTRACTOR_PENDING = 5;
+    SOUND_EXTRACTOR_COMPLETE = 6;
+    SOUND_EXTRACTOR_ERROR = 7;
 
-    SUBTITLE_TRANSFORMER_PENDING = 10;
-    SUBTITLE_TRANSFORMER_COMPLETE = 11;
-    SUBTITLE_TRANSFORMER_ERROR = 12;
+    SUBTITLE_GENERATOR_PENDING = 8;
+    SUBTITLE_GENERATOR_COMPLETE = 9;
+    SUBTITLE_GENERATOR_ERROR = 10;
 
-    SUBTITLE_INCRUSTATOR_PENDING = 13;
-    SUBTITLE_INCRUSTATOR_COMPLETE = 14;
-    SUBTITLE_INCRUSTATOR_ERROR = 15;
+    SUBTITLE_MERGER_PENDING = 11;
+    SUBTITLE_MERGER_COMPLETE = 12;
+    SUBTITLE_MERGER_ERROR = 13;
 
-    VIDEO_FORMATTER_PENDING = 16;
-    VIDEO_FORMATTER_COMPLETE = 17;
-    VIDEO_FORMATTER_ERROR = 18;
+    SUBTITLE_TRANSFORMER_PENDING = 14;
+    SUBTITLE_TRANSFORMER_COMPLETE = 15;
+    SUBTITLE_TRANSFORMER_ERROR = 16;
 
-    RESIZING = 19;
-    RESIZED = 20;
+    SUBTITLE_INCRUSTATOR_PENDING = 17;
+    SUBTITLE_INCRUSTATOR_COMPLETE = 18;
+    SUBTITLE_INCRUSTATOR_ERROR = 19;
 
-    READY_FOR_EXPORT = 21;
-    ERROR = 22;
+    VIDEO_FORMATTER_PENDING = 20;
+    VIDEO_FORMATTER_COMPLETE = 21;
+    VIDEO_FORMATTER_ERROR = 22;
+
+    VIDEO_SPLITTER_PENDING = 23;
+    VIDEO_SPLITTER_COMPLETE = 24;
+    VIDEO_SPLITTER_ERROR = 25;
 }
 
 enum ConfigurationSubtitleShadow {
@@ -121,6 +133,7 @@ message MediaPod {
     string status = 5;
     Configuration configuration = 6;
     Video processedVideo = 7;
+    Video finalVideo = 8;
 }
 
 message Video {
@@ -146,4 +159,5 @@ message Configuration {
     string subtitleShadow = 9;
     string subtitleShadowColor = 10;
     string format = 11;
+    string split = 12;
 }
