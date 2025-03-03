@@ -133,18 +133,19 @@ message MediaPod {
     string status = 5;
     Configuration configuration = 6;
     Video processedVideo = 7;
-    Video finalVideo = 8;
+    repeated Video finalVideo = 8;
 }
 
 message Video {
-    string name = 1;
-    string mimeType = 2;
-    int64 size = 3;
-    optional int64 length = 4;
-    optional string subtitle = 5;
-    optional string ass = 6;
-    repeated string subtitles = 7;
-    repeated string audios = 8;
+    string uuid = 1;
+    string name = 2;
+    string mimeType = 3;
+    int64 size = 4;
+    optional int64 length = 5;
+    optional string subtitle = 6;
+    optional string ass = 7;
+    repeated string subtitles = 8;
+    repeated string audios = 9;
 }
 
 message Configuration {
