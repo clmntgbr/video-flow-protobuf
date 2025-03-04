@@ -61,6 +61,14 @@ message VideoSplitterToApi {
     MediaPod mediaPod = 1;
 }
 
+message ApiToVideoIncrustator {
+    MediaPod mediaPod = 1;
+}
+
+message VideoIncrustatorToApi {
+    MediaPod mediaPod = 1;
+}
+
 enum MediaPodStatus {
     RESIZING = 0;
     RESIZED = 1;
@@ -97,6 +105,10 @@ enum MediaPodStatus {
     VIDEO_SPLITTER_PENDING = 23;
     VIDEO_SPLITTER_COMPLETE = 24;
     VIDEO_SPLITTER_ERROR = 25;
+
+    VIDEO_INCRUSTATOR_PENDING = 26;
+    VIDEO_INCRUSTATOR_COMPLETE = 27;
+    VIDEO_INCRUSTATOR_ERROR = 28;
 }
 
 enum ConfigurationSubtitleShadow {
